@@ -1,19 +1,6 @@
-# Telegram Asia / Singapore / India -> Hong Kong
-# Remote-rule list: do not add [Rule] or policy names here.
-
-IP-CIDR,91.108.16.0/22,no-resolve
-IP-CIDR,91.108.20.0/22,no-resolve
-IP-CIDR,91.108.56.0/23,no-resolve
-IP-CIDR,149.154.168.0/22,no-resolve
-
-IP-CIDR6,2001:b28:f23c::/48,no-resolve
-IP-CIDR6,2001:b28:f23f::/48,no-resolve
-
-IP-ASN,44907,no-resolve
-IP-ASN,62014,no-resolve
-
-
-# Telegram official and related domains -> Hong Kong
+# Telegram domains and third-party Telegram clients
+# Subscription policy: 📲 Telegram
+# This file contains domains only, so the node can be selected manually in the strategy group.
 
 DOMAIN,api.imem.app
 DOMAIN,api.swiftgram.app
