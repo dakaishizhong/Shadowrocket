@@ -1,70 +1,25 @@
-# ============================================================
-# Loon - Telegram 按数据中心区域分流
-#
-# 策略组名称必须与 Loon 中完全一致：
-#   🇭🇰 香港
-#   🇺🇲 美国
-#   🇩🇪 德国
-#
-# 使用方法：
-# 1. 将下面整个 [Rule] 区块合并到主配置的 [Rule] 中。
-# 2. 如果主配置已经存在 [Rule]，不要重复保留 [Rule] 标题。
-# 3. 必须放在 FINAL 规则之前。
-# 4. 修改后关闭 Telegram 后台，再重新打开。
-#
-# 分流原则：
-# - Telegram 亚洲 / 新加坡 / 印度 CDN -> 🇭🇰 香港
-# - Telegram 北美 / 迈阿密             -> 🇺🇲 美国
-# - Telegram 欧洲 / 荷兰 / 芬兰       -> 🇩🇪 德国
-# - 无法从域名判断数据中心的网页及接口 -> 🇭🇰 香港
-# ============================================================
-
-[Rule]
-
-# ------------------------------------------------------------
-# Telegram 亚洲 / 新加坡 / 印度 CDN -> 香港
-# ------------------------------------------------------------
-IP-CIDR,91.108.16.0/22,🇭🇰 香港,no-resolve
-IP-CIDR,91.108.20.0/22,🇭🇰 香港,no-resolve
-IP-CIDR,91.108.56.0/23,🇭🇰 香港,no-resolve
-IP-CIDR,149.154.168.0/22,🇭🇰 香港,no-resolve
-IP-CIDR,139.59.210.98/32,🇭🇰 香港,no-resolve
-IP-CIDR6,2001:b28:f23c::/48,🇭🇰 香港,no-resolve
-IP-CIDR6,2001:b28:f23f::/48,🇭🇰 香港,no-resolve
-IP-ASN,44907,🇭🇰 香港,no-resolve
-IP-ASN,62014,🇭🇰 香港,no-resolve
-
-
-
-# ------------------------------------------------------------
-# Telegram 官方及相关域名
-# 域名本身不能表示文件所在 DC，因此统一使用香港。
-# MTProto 文件传输通常直接连接上面的 DC IP，仍会按区域分流。
-# ------------------------------------------------------------
-DOMAIN,api.imem.app,🇭🇰 香港
-DOMAIN,api.swiftgram.app,🇭🇰 香港
-DOMAIN-SUFFIX,cdn-telegram.org,🇭🇰 香港
-DOMAIN-SUFFIX,comments.app,🇭🇰 香港
-DOMAIN-SUFFIX,contest.com,🇭🇰 香港
-DOMAIN-SUFFIX,graph.org,🇭🇰 香港
-DOMAIN-SUFFIX,legra.ph,🇭🇰 香港
-DOMAIN-SUFFIX,mbrx.app,🇭🇰 香港
-DOMAIN-SUFFIX,quiz.directory,🇭🇰 香港
-DOMAIN-SUFFIX,stel.com,🇭🇰 香港
-DOMAIN-SUFFIX,t.me,🇭🇰 香港
-DOMAIN-SUFFIX,tdesktop.com,🇭🇰 香港
-DOMAIN-SUFFIX,telega.one,🇭🇰 香港
-DOMAIN-SUFFIX,telegra.ph,🇭🇰 香港
-DOMAIN-SUFFIX,telegram-cdn.org,🇭🇰 香港
-DOMAIN-SUFFIX,telegram.dog,🇭🇰 香港
-DOMAIN-SUFFIX,telegram.me,🇭🇰 香港
-DOMAIN-SUFFIX,telegram.org,🇭🇰 香港
-DOMAIN-SUFFIX,telegram.space,🇭🇰 香港
-DOMAIN-SUFFIX,telegramdownload.com,🇭🇰 香港
-DOMAIN-SUFFIX,telesco.pe,🇭🇰 香港
-DOMAIN-SUFFIX,tg.dev,🇭🇰 香港
-DOMAIN-SUFFIX,tx.me,🇭🇰 香港
-DOMAIN-SUFFIX,usercontent.dev,🇭🇰 香港
-DOMAIN-KEYWORD,nicegram,🇭🇰 香港
-
-# 注意：不要在这里添加 FINAL；继续使用你主配置原有的 FINAL 规则。
+DOMAIN,api.imem.app
+DOMAIN,api.swiftgram.app
+DOMAIN-SUFFIX,cdn-telegram.org
+DOMAIN-SUFFIX,comments.app
+DOMAIN-SUFFIX,contest.com
+DOMAIN-SUFFIX,graph.org
+DOMAIN-SUFFIX,legra.ph
+DOMAIN-SUFFIX,mbrx.app
+DOMAIN-SUFFIX,quiz.directory
+DOMAIN-SUFFIX,stel.com
+DOMAIN-SUFFIX,t.me
+DOMAIN-SUFFIX,tdesktop.com
+DOMAIN-SUFFIX,telega.one
+DOMAIN-SUFFIX,telegra.ph
+DOMAIN-SUFFIX,telegram-cdn.org
+DOMAIN-SUFFIX,telegram.dog
+DOMAIN-SUFFIX,telegram.me
+DOMAIN-SUFFIX,telegram.org
+DOMAIN-SUFFIX,telegram.space
+DOMAIN-SUFFIX,telegramdownload.com
+DOMAIN-SUFFIX,telesco.pe
+DOMAIN-SUFFIX,tg.dev
+DOMAIN-SUFFIX,tx.me
+DOMAIN-SUFFIX,usercontent.dev
+DOMAIN-KEYWORD,nicegram
